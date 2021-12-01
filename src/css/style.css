@@ -5,10 +5,24 @@
   justify-content: right;
 }
 .preview {
-  position: fixed;
+  position: absolute;
+  top: 25px;
+  left: 30px;
 }
 
 .container {
   text-align: left;
   margin: 50px 0;
+}
+.dropdown-container {
+  display: flex;
+}
+.dropdown {
+  width: 15%;
+  margin: 20px;
+}
+.card {
+  margin: 20px;
+  height: 241px;
+  width: 50%;
 }
