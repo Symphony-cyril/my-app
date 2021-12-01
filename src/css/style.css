@@ -1,0 +1,14 @@
+.App {
+  margin: 30px;
+}
+.Header ul {
+  justify-content: right;
+}
+.preview {
+  position: fixed;
+}
+
+.container {
+  text-align: left;
+  margin: 50px 0;
+}
