@@ -30,7 +30,9 @@ function Cat() {
     <div className="cat">
       <Button onClick={getCat}>Click REACT</Button>
       <br />
-      <img src={showCat} alt="" />
+      <span>
+        <img src={showCat} alt="" />
+      </span>
     </div>
   );
 }

@@ -22,7 +22,7 @@ export const fetchCat = () => {
       .then(
         (data) => {
           dispatch(fetchCatSuccess(data[0].url));
-          console.log(data);
+          console.log(data[0].url);
         },
         (error) => {
           dispatch(fetchCatFailure(error));
