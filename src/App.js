@@ -25,19 +25,16 @@ import "./css/style.css";
 import { fetchCat } from "./redux/catAction";
 import { connect } from "react-redux";
 
-function App() {
+function App(props) {
   const [visible, setVisible] = useState(false);
 
   const handleClose = () => {
     setVisible(false);
   };
 
-  const catData = [];
-  const cat = catData.cat;
+  const catData = props.catData;
 
-  function componentDidMount() {
-    this.props.fetchCat();
-  }
+  console.log(catData);
 
   return (
     <div className="App">
@@ -95,7 +92,7 @@ function App() {
         </div>
 
         <div className="badge">
-          <h1 class="tk-mb-2 tk-text-color--primary">Badge</h1>
+          <h1 className="tk-mb-2 tk-text-color--primary">Badge</h1>
           <div>
             <h3>Default badge</h3>
             <Badge variant="default" className="tk-mr-h">
@@ -162,23 +159,28 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="redux">
-        <Button onClick={componentDidMount}>Redux button</Button>
-        {catData}
+      <div className="cat">
+        <Button onClick={props.fetchCat}>Redux button</Button>
+        <span>
+          <img src={catData.cat} alt="" />
+        </span>
+        {/* <Button>Saga button</Button>*/}
       </div>
     </div>
   );
 }
 
 const mapStateToProps = (state) => {
+  console.log(state.cat);
   return {
     catData: state.cat,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchCat: () => dispatch(fetchCat()),
   };
 };
 
-export default connect(mapStateToProps, mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
