@@ -26,3 +26,12 @@
   height: 241px;
   width: 50%;
 }
+.cat img {
+  max-width: 300px;
+  max-height: 300px;
+  margin-left: 50px;
+}
+.cat {
+  display: flex;
+  margin-left: 20px;
+}

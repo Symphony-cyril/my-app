@@ -22,6 +22,8 @@ import {
 import "@symphony-ui/uitoolkit-styles/dist/css/uitoolkit.css";
 import "./App.css";
 import "./css/style.css";
+import { fetchCat } from "./redux/catAction";
+import { connect } from "react-redux";
 
 function App() {
   const [visible, setVisible] = useState(false);
@@ -29,6 +31,13 @@ function App() {
   const handleClose = () => {
     setVisible(false);
   };
+
+  const catData = [];
+  const cat = catData.cat;
+
+  function componentDidMount() {
+    this.props.fetchCat();
+  }
 
   return (
     <div className="App">
@@ -153,8 +162,23 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="redux">
+        <Button onClick={componentDidMount}>Redux button</Button>
+        {catData}
+      </div>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    catData: state.cat,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchCat: () => dispatch(fetchCat()),
+  };
+};
+
+export default connect(mapStateToProps, mapStateToProps)(App);
