@@ -3,8 +3,10 @@ interface user {
   firstname: string;
 }
 
-function userData(title: user) {
+function inter(title: user) {
   console.log("title.name" + " " + "title.firstname");
 }
 
 let interfaceUser = { name: "cyril", firstname: "ruffa" };
+
+inter(interfaceUser);
