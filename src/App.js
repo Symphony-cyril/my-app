@@ -22,8 +22,10 @@ import {
 import "@symphony-ui/uitoolkit-styles/dist/css/uitoolkit.css";
 import "./App.css";
 import "./css/style.css";
-import { fetchCat } from "./redux/catAction";
-import { connect } from "react-redux";
+import { fetchCat, fetchCatRequest } from "./redux/catType";
+import { connect, useDispatch, useSelector } from "react-redux";
+import { reducer } from "./redux/catReducer";
+import { catFetch } from "./redux/sagas";
 
 function App(props) {
   const [visible, setVisible] = useState(false);
@@ -32,9 +34,9 @@ function App(props) {
     setVisible(false);
   };
 
+  //const dispatch = useDispatch();
+  // const cat = useSelector((state) => state.cat);
   const catData = props.catData;
-
-  console.log(catData);
 
   return (
     <div className="App">
@@ -162,7 +164,7 @@ function App(props) {
       <div className="cat">
         <Button onClick={props.fetchCat}>Redux button</Button>
         <span>
-          <img src={catData.cat} alt="" />
+          <img src={catData.url} alt="" />
         </span>
         {/* <Button>Saga button</Button>*/}
       </div>
@@ -171,15 +173,14 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.cat);
   return {
-    catData: state.cat,
+    catData: state.cat.cat,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCat: () => dispatch(fetchCat()),
+    fetchCat: () => dispatch(fetchCatRequest()),
   };
 };
 
