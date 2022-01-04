@@ -6,12 +6,15 @@ import store from "./redux/storeOne";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
 import Cat from "./components/cat";
+import Icon from "./components/test";
+import "@symphony-ui/uitoolkit-styles/dist/css/uitoolkit.css";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
-      <Cat />
+      {/*<App />
+      <Cat />*/}
+      <Icon />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

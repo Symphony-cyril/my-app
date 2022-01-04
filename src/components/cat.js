@@ -1,5 +1,5 @@
 import { Button } from "@symphony-ui/uitoolkit-components";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 function Cat() {
   const [showCat, setShowCat] = useState();
